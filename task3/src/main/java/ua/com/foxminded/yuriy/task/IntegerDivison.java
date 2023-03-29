@@ -5,12 +5,24 @@ public class IntegerDivison {
 	public static void LongDivision(int divident, int divisor) {
 
 		int quotient = divident / divisor;
+		
 
 		String numDivident = Integer.toString(divident);
 		String numDivisor = Integer.toString(divisor);
 
 		char[] dividentArray = numDivident.toCharArray();
 		char[] divisorArray = numDivisor.toCharArray();
+		
+		int [] numericDividentArray = new int [dividentArray.length];
+			for (int i = 0; i < dividentArray.length; i++) {
+				numericDividentArray [i] = Character.getNumericValue(dividentArray[i]);
+			}
+			
+		int [] numericDivisorArray = new int [dividentArray.length];
+			
+			for (int i = 0; i < divisorArray.length; i++) {
+				numericDivisorArray [i] = Character.getNumericValue(divisorArray[i]);
+			}
 
 		int dividentLength = dividentArray.length;
 		StringBuilder leftSpace = new StringBuilder();
@@ -31,9 +43,9 @@ public class IntegerDivison {
 
 		for (int i = 0; i < dividentLength - 1; i++) {
 			
-			int tmpDivident = dividentArray[i];
+			int tmpDivident = numericDividentArray[i];
 			int tmpDifference = tmpDivident - divisor;
-			int tmpSecondDividentNumber = dividentArray[i + 1];
+			int tmpSecondDividentNumber = numericDividentArray[i + 1];
 			
 			String tmpStringToMerge = String.valueOf(tmpDifference) + String.valueOf(tmpSecondDividentNumber);
 			int dividentNumber = Integer.parseInt(tmpStringToMerge);
