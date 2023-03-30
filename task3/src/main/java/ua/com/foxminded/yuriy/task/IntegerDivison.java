@@ -53,7 +53,8 @@ public class IntegerDivison {
 		int tmpRemainder = 0;
 		int tmpResult = 0;
 		int numberToPrint = 0;
-
+while (dividentLength > 0) {
+	
 		while (tmpDivident >= divisor) {
 			tmpDivident = tmpDivident - divisor;
 			tmpResult = tmpDivident;
@@ -72,7 +73,7 @@ public class IntegerDivison {
 		
 		int tmpIterationResult = 0;
 		
-		while (dividentLength > 0) {
+		
 
 			
 			int tmpIterationDivident = Integer.parseInt(subtractResultBuilder.toString());
