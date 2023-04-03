@@ -8,7 +8,11 @@ public class IntegerDivison {
 		int quotient = divident / divisor;
 		String numDivident = Integer.toString(divident);
 		String numDivisor = Integer.toString(divisor);
-
+		String space = " ";
+		String middleLine = "-";
+		String underScore = "_";
+		char newLine = '\n';
+		
 		// Temporary Variables
 
 		String tmpStringQuotient = Integer.toString(quotient);
@@ -39,20 +43,24 @@ public class IntegerDivison {
 		StringBuilder regulatoryDash = new StringBuilder();
 		StringBuilder variableSpace = new StringBuilder();
 
+		
+		
 		for (int i = 0; i < dividentArray.length - divisorArray.length; i++) {
-			regulatorySpace.append(" ");
-			regulatoryDash.append("-");
+			regulatorySpace.append(space);
+			regulatoryDash.append(middleLine);
 		}
 
 		for (int i = 0; i < divisorArray.length; i++) {
-			equalSign.append("-");
+			equalSign.append(middleLine);
 		}
 
 		// Body of the Integer Division
 
-		divisionResult.append("_" + divident + " | " + divisor + '\n');
-		divisionResult.append(" " + (divisor * quotientArray[0]) + regulatorySpace + " | " + regulatoryDash + '\n');
-		divisionResult.append(" " + equalSign + regulatorySpace + " | " + quotient + '\n');
+		
+		
+		divisionResult.append(underScore + divident + " | " + divisor + newLine);
+		divisionResult.append(space + (divisor * quotientArray[0]) + regulatorySpace + " | " + regulatoryDash + newLine);
+		divisionResult.append(space + equalSign + regulatorySpace + " | " + quotient + newLine);
 
 		// First Iteration to Start
 
@@ -72,15 +80,15 @@ public class IntegerDivison {
 		for (int i = 1; i < dividentArray.length; i++) {
 			String tmpCreateDivident = (Integer.toString(resultBeforeStartIteration) + dividentArray[dividentPosition]);
 			int tmpDivident = Integer.parseInt(tmpCreateDivident);
-			divisionResult.append("_");
+			divisionResult.append(underScore);
 			divisionResult.append(tmpDivident);
 			int tmpDivisor = (divisor * quotientArray[dividentPosition]);
-			variableSpace.append(" ");
-			divisionResult.append('\n');
+			variableSpace.append(space);
+			divisionResult.append(newLine);
 			divisionResult.append(variableSpace);
 			divisionResult.append(tmpDivisor);
-			divisionResult.append('\n').append(variableSpace).append(equalSign).append(equalSign);
-			divisionResult.append('\n');
+			divisionResult.append(newLine).append(variableSpace).append(equalSign).append(equalSign);
+			divisionResult.append(newLine);
 			divisionResult.append(variableSpace);
 			//divisionResult.append(equalSign);
 			resultBeforeStartIteration = tmpDivident - tmpDivisor;
