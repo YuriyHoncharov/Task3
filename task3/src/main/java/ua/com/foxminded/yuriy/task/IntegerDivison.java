@@ -2,11 +2,11 @@ package ua.com.foxminded.yuriy.task;
 
 public class IntegerDivison {
 
-	public static void LongDivision(int divident, int divisor) {
+	public static void LongDivision(int dividend, int divisor) {
 
 		// Basic Variables
-		int quotient = divident / divisor;
-		String numDivident = Integer.toString(divident);
+		int quotient = dividend / divisor;
+		String numDividend = Integer.toString(dividend);
 		String numDivisor = Integer.toString(divisor);
 		String space = " ";
 		String middleLine = "-";
@@ -16,20 +16,20 @@ public class IntegerDivison {
 		// Temporary Variables
 
 		String tmpStringQuotient = Integer.toString(quotient);
-		String tmpStringDivident = Integer.toString(divident);
+		String tmpStringDividend = Integer.toString(dividend);
 		String tmpStringDivisor = Integer.toString(divisor);
 
 		// Creating int [] array of variables above
 
 		int[] quotientArray = new int[tmpStringQuotient.length()];
-		int[] dividentArray = new int[tmpStringDivident.length()];
+		int[] dividendArray = new int[tmpStringDividend.length()];
 		int[] divisorArray = new int[tmpStringDivisor.length()];
 
 		for (int i = 0; i < tmpStringQuotient.length(); i++) {
 			quotientArray[i] = Character.getNumericValue(tmpStringQuotient.charAt(i));
 		}
-		for (int i = 0; i < tmpStringDivident.length(); i++) {
-			dividentArray[i] = Character.getNumericValue(tmpStringDivident.charAt(i));
+		for (int i = 0; i < tmpStringDividend.length(); i++) {
+			dividendArray[i] = Character.getNumericValue(tmpStringDividend.charAt(i));
 		}
 		for (int i = 0; i < tmpStringDivisor.length(); i++) {
 			divisorArray[i] = Character.getNumericValue(tmpStringDivisor.charAt(i));
@@ -45,7 +45,7 @@ public class IntegerDivison {
 
 		
 		
-		for (int i = 0; i < dividentArray.length - divisorArray.length; i++) {
+		for (int i = 0; i < dividendArray.length - divisorArray.length; i++) {
 			regulatorySpace.append(space);
 			regulatoryDash.append(middleLine);
 		}
@@ -58,31 +58,34 @@ public class IntegerDivison {
 
 		
 		
-		divisionResult.append(underScore + divident + " | " + divisor + newLine);
+		divisionResult.append(underScore + dividend + " | " + divisor + newLine);
 		divisionResult.append(space + (divisor * quotientArray[0]) + regulatorySpace + " | " + regulatoryDash + newLine);
 		divisionResult.append(space + equalSign + regulatorySpace + " | " + quotient + newLine);
 
 		// First Iteration to Start
 
 		String tmpNumberToSubtract = "";
-
+		
 		for (int i = 0; i < divisorArray.length; i++) {
-			tmpNumberToSubtract += dividentArray[i];
+			tmpNumberToSubtract += dividendArray[i];
+			if (Integer.parseInt(tmpNumberToSubtract) < divisor) {
+				tmpNumberToSubtract += dividendArray[i+1];
+			}
 		}
 
 		int initialNumberToSubtract = Integer.parseInt(tmpNumberToSubtract);
-		int resultBeforeStartIteration = initialNumberToSubtract - divisor;
-		int dividentPosition = tmpNumberToSubtract.length();
+		int resultBeforeStartIteration = initialNumberToSubtract - divisor * quotientArray[0];
+		int dividendPosition = tmpNumberToSubtract.length();
 		int divisorPosition = 1;
 
 		// Main Iteration
 
-		for (int i = 1; i < dividentArray.length; i++) {
-			String tmpCreateDivident = (Integer.toString(resultBeforeStartIteration) + dividentArray[dividentPosition]);
-			int tmpDivident = Integer.parseInt(tmpCreateDivident);
+		for (int i = 1; i < dividendArray.length - 1; i++) {
+			String tmpCreateDividend = (Integer.toString(resultBeforeStartIteration) + dividendArray[dividendPosition]);
+			int tmpDividend = Integer.parseInt(tmpCreateDividend);
 			divisionResult.append(underScore);
-			divisionResult.append(tmpDivident);
-			int tmpDivisor = (divisor * quotientArray[dividentPosition]);
+			divisionResult.append(tmpDividend);
+			int tmpDivisor = (divisor * quotientArray[divisorPosition]);
 			variableSpace.append(space);
 			divisionResult.append(newLine);
 			divisionResult.append(variableSpace);
@@ -91,10 +94,10 @@ public class IntegerDivison {
 			divisionResult.append(newLine);
 			divisionResult.append(variableSpace);
 			//divisionResult.append(equalSign);
-			resultBeforeStartIteration = tmpDivident - tmpDivisor;
-			dividentPosition++;
+			resultBeforeStartIteration = tmpDividend - tmpDivisor;
+			dividendPosition++;
 			divisorPosition++;
-			if (dividentPosition == dividentArray.length) {
+			if (dividendPosition == dividendArray.length) {
 				divisionResult.append(resultBeforeStartIteration);
 			}
 			
