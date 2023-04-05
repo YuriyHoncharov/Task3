@@ -152,7 +152,7 @@ public class IntegerDivison {
 
 			}
 
-			divisionResult.append(spaceBefore.toString() + middleLine + newMinuend.toString() + newLine); // Next dividend line
+			divisionResult.append(spaceBefore.toString() + underScore + newMinuend.toString() + newLine); // Next dividend line
 
 			// Determining new subtrahend based on quotient position
 
