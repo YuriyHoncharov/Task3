@@ -5,12 +5,16 @@ public class Main {
 	public static void main(String[] args) {
 
 		System.out.println("Enter the divident.");
-		int divident = InputReader.readInt();
+		int dividend = InputReader.readInt();
 
 		System.out.println("Enter the divisor.");
 		int divisor = InputReader.readInt();
 
-		IntegerDivison.LongDivision(divident, divisor);
+		IntegerDivison longDivision = new IntegerDivison();
+		String result = longDivision.LongDivision(dividend, divisor);
+		System.out.println(result);
+		
+		
 
 	}
 }
