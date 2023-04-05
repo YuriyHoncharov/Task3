@@ -4,7 +4,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		System.out.println("Enter the divident.");
+		System.out.println("Enter the dividend.");
 		int dividend = InputReader.readInt();
 
 		System.out.println("Enter the divisor.");
