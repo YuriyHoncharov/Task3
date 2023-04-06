@@ -13,11 +13,6 @@
 			<version>5.9.1</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>ua.com.foxminded.mentoring</groupId>
-			<artifactId>Task1</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
 	</dependencies>
 	<build>
 		<sourceDirectory>src/main/java</sourceDirectory>

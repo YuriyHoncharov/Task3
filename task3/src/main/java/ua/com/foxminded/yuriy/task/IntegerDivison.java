@@ -93,7 +93,7 @@ public class IntegerDivison {
 
 		divisionResult.append(underScore + dividend + verticalLine + divisor + newLine); // First line
 		divisionResult
-				.append(spaceBeforeDividend.toString() + String.valueOf(Integer.parseInt(quotientList.get(0)) * divisor)
+				.append(spaceBeforeDividend.toString() + (Integer.parseInt(quotientList.get(0)) * divisor)
 						+ spaceAfterDividend.toString() + verticalLine + regulatoryDash + newLine); // Second line
 		divisionResult.append(spaceBeforeDividend.toString() + dashUnderDividend.toString()
 				+ spaceAfterDividend.toString() + verticalLine + dividend / divisor + newLine); // Third line
