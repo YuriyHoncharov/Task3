@@ -10,7 +10,7 @@ public class Main {
 		System.out.println("Enter the divisor.");
 		int divisor = InputReader.readInt();
 
-		IntegerDivison longDivision = new IntegerDivison();
+		IntegerDivision longDivision = new IntegerDivision();
 		String result = longDivision.LongDivision(dividend, divisor);
 		System.out.println(result);
 		
