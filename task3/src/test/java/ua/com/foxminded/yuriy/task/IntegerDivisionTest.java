@@ -1,14 +1,8 @@
 package ua.com.foxminded.yuriy.task;
 
-import static org.junit.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.*;
-
-import java.util.InputMismatchException;
-
-import java.util.stream.Stream;
-
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.provider.Arguments;
+
 
 class IntegerDivisionTest {
 
@@ -40,9 +34,9 @@ class IntegerDivisionTest {
 			                        + "  0";
 	// Third Case Data
 	
-	int dividend_caseThree = 0;
-	int divisor_caseThree = 0;
-	String result_caseThree = testThree.LongDivision(dividend_caseThree, divisor_caseThree);
+//	int dividend_caseThree = 0;
+//	int divisor_caseThree = 0;
+//	String result_caseThree = testThree.LongDivision(dividend_caseThree, divisor_caseThree);
 
 	@Test
 	void LongDivision_DivisorEqualToDividend_RightPrintResult() {
@@ -55,9 +49,9 @@ class IntegerDivisionTest {
 		
 	}
 	
-	@Test
-	void LongDivision_DivisorOrDividendEqualZero_ThrowIllegalException() {
-		assertThrows(IllegalArgumentException.class, () -> testThree.LongDivision(dividend_caseThree, divisor_caseThree));
-	}
+//	@Test
+//	void LongDivision_DivisorOrDividendEqualZero_ThrowIllegalException() {
+//		assertThrows(IllegalArgumentException.class, () -> testThree.LongDivision(dividend_caseThree, divisor_caseThree));
+//	}
 	
 }

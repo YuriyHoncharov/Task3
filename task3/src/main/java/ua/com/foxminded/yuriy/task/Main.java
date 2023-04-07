@@ -13,8 +13,6 @@ public class Main {
 		IntegerDivision longDivision = new IntegerDivision();
 		String result = longDivision.LongDivision(dividend, divisor);
 		System.out.println(result);
-		
-		
 
 	}
 }
