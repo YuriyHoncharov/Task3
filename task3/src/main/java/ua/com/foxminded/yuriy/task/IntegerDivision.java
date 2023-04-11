@@ -6,12 +6,12 @@ import java.util.List;
 
 public class IntegerDivision {
 
-	private String emptyString = "";
-	private String space = " ";
-	private String middleLine = "-";
-	private String underScore = "_";
-	private String verticalLine = " | ";
-	private String newLine = "\n";
+	private final String emptyString = "";
+	private final String space = " ";
+	private final String middleLine = "-";
+	private final String underScore = "_";
+	private final String verticalLine = " | ";
+	private final String newLine = "\n";
 	private StringBuilder divisionResult = new StringBuilder();
 	private List<String> quotientList = new ArrayList<>();
 	private List<String> dividendList = new ArrayList<>();
