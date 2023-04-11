@@ -95,11 +95,12 @@ public class IntegerDivision {
 
 		// Appending process
 
-		divisionResult.append(underScore + dividend + verticalLine + divisor + newLine); // First line
-		divisionResult.append(spaceBeforeDividend.toString() + (Integer.parseInt(quotientList.get(0)) * divisor)
-				+ spaceAfterDividend.toString() + verticalLine + regulatoryDash + newLine); // Second line
-		divisionResult.append(spaceBeforeDividend.toString() + dashUnderDividend.toString()
-				+ spaceAfterDividend.toString() + verticalLine + dividend / divisor + newLine); // Third line
+		divisionResult.append(underScore).append(dividend).append(verticalLine).append(divisor).append(newLine); // First line
+		divisionResult.append(spaceBeforeDividend.toString()).append(Integer.parseInt(quotientList.get(0)) * divisor)
+		.append(spaceAfterDividend.toString()).append(verticalLine).append(regulatoryDash).append(newLine); // Second line
+		divisionResult.append(spaceBeforeDividend.toString()).append(dashUnderDividend.toString()).append(spaceAfterDividend.toString()).append(verticalLine)
+		.append(dividend / divisor).append(newLine); // Third line
+		
 	}
 
 	private void centralIteration(int divisor) {
@@ -151,7 +152,7 @@ public class IntegerDivision {
 
 			}
 
-			divisionResult.append(spaceBefore.toString() + underScore + newMinuend.toString() + newLine); // Next dividend line
+			divisionResult.append(spaceBefore.toString()).append(underScore).append(newMinuend.toString()).append(newLine); // Next dividend line
 
 			// Determining new subtrahend based on quotient position
 
@@ -168,7 +169,7 @@ public class IntegerDivision {
 				additionalSpace.append(space);
 			}
 
-			divisionResult.append(spaceBefore.toString() + additionalSpace.toString() + newSubtrahend + newLine); // Next subtrahend line
+			divisionResult.append(spaceBefore.toString()).append(additionalSpace.toString()).append(newSubtrahend).append(newLine); // Next subtrahend line
 
 			// Determining equal signs to print under subtrahend
 
@@ -181,7 +182,7 @@ public class IntegerDivision {
 				equalSign.append(middleLine);
 			}
 
-			divisionResult.append(spaceBefore.toString() + additionalSpace.toString() + equalSign.toString() + newLine); // Next equal sign line
+			divisionResult.append(spaceBefore.toString()).append(additionalSpace.toString()).append(equalSign.toString()).append(newLine); // Next equal sign line
 
 			// Setting new parameters to start new iteration with
 
@@ -201,7 +202,7 @@ public class IntegerDivision {
 			if (i == dividendList.size() - 1) {
 
 				divisionResult
-						.append(spaceBefore.toString() + additionalSpace.toString() + positionForRest.toString() + rest);
+						.append(spaceBefore.toString()).append(additionalSpace.toString()).append(positionForRest.toString()).append(rest);
 			}
 		}
 	}
