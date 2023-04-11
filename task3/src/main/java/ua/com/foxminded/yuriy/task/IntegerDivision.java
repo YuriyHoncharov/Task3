@@ -31,7 +31,6 @@ public class IntegerDivision {
 		centralIteration(divisor);
 
 		return divisionResult.toString();
-
 	}
 
 	private void inputCheck(int dividend, int divisor) {
@@ -101,7 +100,6 @@ public class IntegerDivision {
 				+ spaceAfterDividend.toString() + verticalLine + regulatoryDash + newLine); // Second line
 		divisionResult.append(spaceBeforeDividend.toString() + dashUnderDividend.toString()
 				+ spaceAfterDividend.toString() + verticalLine + dividend / divisor + newLine); // Third line
-
 	}
 
 	private void centralIteration(int divisor) {
@@ -109,8 +107,7 @@ public class IntegerDivision {
 		StringBuilder minuend = starterDividend(divisor);
 		int subtrahend = Integer.parseInt(quotientList.get(0)) * divisor;
 
-		// Creating iteration, taking as start reference : actual position of dividend
-		// and divisor.
+		// Creating iteration, taking as start reference : actual position of dividend and divisor.
 
 		for (int i = minuend.toString().length(), j = 1; i < dividendList.size(); i++, j++) {
 			StringBuilder newMinuend = new StringBuilder();
@@ -133,13 +130,11 @@ public class IntegerDivision {
 				spaceBefore.append(space);
 			}
 
-			// Enter this iteration if newMinued value is not enough to subtract divisor
-			// value.
+			// Enter this iteration if newMinued value is not enough to subtract divisor value.
 
 			while (Integer.parseInt(newMinuend.toString()) < divisor) {
 
-				// If newMinued value was not enough, step up to the next position of dividend
-				// list.
+				// If newMinued value was not enough, step up to the next position of dividend list.
 
 				i++;
 				if (i >= dividendList.size()) {
@@ -156,15 +151,13 @@ public class IntegerDivision {
 
 			}
 
-			divisionResult.append(spaceBefore.toString() + underScore + newMinuend.toString() + newLine); // Next dividend
-																																			// line
+			divisionResult.append(spaceBefore.toString() + underScore + newMinuend.toString() + newLine); // Next dividend line
 
 			// Determining new subtrahend based on quotient position
 
 			int newSubtrahend = Integer.parseInt(quotientList.get(j)) * divisor;
 
-			// Determining the position of new subtrahend based on minuend and subtrahend
-			// length
+			// Determining the position of new subtrahend based on minuend and subtrahend length
 
 			StringBuilder additionalSpace = new StringBuilder();
 
@@ -175,9 +168,7 @@ public class IntegerDivision {
 				additionalSpace.append(space);
 			}
 
-			divisionResult.append(spaceBefore.toString() + additionalSpace.toString() + newSubtrahend + newLine); // Next
-																																					// subtrahend
-																																					// line
+			divisionResult.append(spaceBefore.toString() + additionalSpace.toString() + newSubtrahend + newLine); // Next subtrahend line
 
 			// Determining equal signs to print under subtrahend
 
@@ -190,10 +181,7 @@ public class IntegerDivision {
 				equalSign.append(middleLine);
 			}
 
-			divisionResult.append(spaceBefore.toString() + additionalSpace.toString() + equalSign.toString() + newLine); // Next
-																																								// equal
-																																								// sign
-																																								// line
+			divisionResult.append(spaceBefore.toString() + additionalSpace.toString() + equalSign.toString() + newLine); // Next equal sign line
 
 			// Setting new parameters to start new iteration with
 
@@ -215,8 +203,6 @@ public class IntegerDivision {
 				divisionResult
 						.append(spaceBefore.toString() + additionalSpace.toString() + positionForRest.toString() + rest);
 			}
-
 		}
-
 	}
 }

@@ -22,5 +22,4 @@ public class InputReader {
 		}
 		return num;
 	}
-
 }
