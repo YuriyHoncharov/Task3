@@ -55,13 +55,13 @@ public class IntegerDivision {
 		return tmpBuilder;
 	}
 	
-	private StringBuilder repeat (int timesToRepeat, String signToAppend) {
+	private String repeat (int timesToRepeat, String signToAppend) {
 		
 		StringBuilder buildedString = new StringBuilder();
 		for (int i = 0; i < timesToRepeat; i++) {
 			buildedString.append(signToAppend);
 		}
-		return buildedString;
+		return buildedString.toString();
 	}
 
 	private void divisionBody(int dividend, int divisor) {
@@ -72,43 +72,37 @@ public class IntegerDivision {
 
 		// Creating Spaces Before and After Initial Dividend
 
-		StringBuilder spaceBeforeDividend = new StringBuilder();
-		StringBuilder spaceAfterDividend = new StringBuilder();
-		StringBuilder regulatoryDash = new StringBuilder();
-		StringBuilder dashUnderDividend = new StringBuilder();
-
 		int spaceBeforeLength = (1
 				+ (dividendToStart.length() - String.valueOf(Integer.parseInt(quotientList.get(0)) * divisor).length()));
 
-		spaceBeforeDividend = repeat(spaceBeforeLength, space);
+		String spaceBeforeDividend = repeat(spaceBeforeLength, space);
 
 		int spaceAfterLength = dividendList.size() - dividendToStart.toString().length();
 
-		spaceAfterDividend = repeat(spaceAfterLength, space);
+		String spaceAfterDividend = repeat(spaceAfterLength, space);
 
 		int regulatoryDashLength = quotientList.size();
 
-		regulatoryDash = repeat(regulatoryDashLength, middleLine);
+		String regulatoryDash = repeat(regulatoryDashLength, middleLine);
 
 		int dashUnderDividendLength = String.valueOf(Integer.parseInt(quotientList.get(0)) * divisor).length();
 		
-		dashUnderDividend = repeat(dashUnderDividendLength, middleLine);
+		String dashUnderDividend = repeat(dashUnderDividendLength, middleLine);
 
 		// Appending process
 
 		divisionResult.append(underScore).append(dividend).append(verticalLine).append(divisor).append(newLine); // First line
-		divisionResult.append(spaceBeforeDividend.toString()).append(Integer.parseInt(quotientList.get(0)) * divisor)
-		.append(spaceAfterDividend.toString()).append(verticalLine).append(regulatoryDash).append(newLine); // Second line
-		divisionResult.append(spaceBeforeDividend.toString()).append(dashUnderDividend.toString()).append(spaceAfterDividend.toString()).append(verticalLine)
+		divisionResult.append(spaceBeforeDividend).append(Integer.parseInt(quotientList.get(0)) * divisor)
+		.append(spaceAfterDividend).append(verticalLine).append(regulatoryDash).append(newLine); // Second line
+		divisionResult.append(spaceBeforeDividend).append(dashUnderDividend).append(spaceAfterDividend).append(verticalLine)
 		.append(dividend / divisor).append(newLine); // Third line
 		
 		if (quotientList.size() == 1) {
 			
 			int rest = dividend - (Integer.parseInt(quotientList.get(0)) * divisor);
-			StringBuilder positionForRest = new StringBuilder();
 			int restPosition = (String.valueOf(Integer.parseInt(quotientList.get(0)) * divisor).length() - String.valueOf(rest).length());
-			positionForRest = repeat(restPosition, space);
-			divisionResult.append(spaceBeforeDividend).append(positionForRest.toString()).append(rest);
+			String positionForRest = repeat(restPosition, space);
+			divisionResult.append(spaceBeforeDividend).append(positionForRest).append(rest);
 		}
 	}
 
@@ -135,8 +129,8 @@ public class IntegerDivision {
 			// Determining space length space to append before next iteration
 
 			int spaceBeforeLength = i - (newMinuend.length() - 1);
-			StringBuilder spaceBefore = new StringBuilder();
-			spaceBefore = repeat(spaceBeforeLength, space);
+			
+			String spaceBefore = repeat(spaceBeforeLength, space);
 
 			// Enter this iteration if newMinued value is not enough to subtract divisor value.
 
@@ -159,7 +153,7 @@ public class IntegerDivision {
 
 			}
 
-			divisionResult.append(spaceBefore.toString()).append(underScore).append(newMinuend.toString()).append(newLine); // Next dividend line
+			divisionResult.append(spaceBefore).append(underScore).append(newMinuend.toString()).append(newLine); // Next dividend line
 
 			// Determining new subtrahend based on quotient position
 
@@ -167,24 +161,19 @@ public class IntegerDivision {
 
 			// Determining the position of new subtrahend based on minuend and subtrahend length
 
-			StringBuilder additionalSpace = new StringBuilder();
-
 			int minuendAndSubtrahendLengthDiff = (newMinuend.toString()).length() - String.valueOf(newSubtrahend).length()	+ 1;
 
-			additionalSpace = repeat(minuendAndSubtrahendLengthDiff, space);
+			String additionalSpace = repeat(minuendAndSubtrahendLengthDiff, space);
 
-			divisionResult.append(spaceBefore.toString()).append(additionalSpace.toString()).append(newSubtrahend).append(newLine); // Next subtrahend line
+			divisionResult.append(spaceBefore).append(additionalSpace).append(newSubtrahend).append(newLine); // Next subtrahend line
 
 			// Determining equal signs to print under subtrahend
 
-			StringBuilder equalSign = new StringBuilder();
-
-			equalSign.setLength(0);
 			int equalSignLength = Integer.toString(newSubtrahend).length();
 
-			equalSign = repeat(equalSignLength, middleLine);
+			String equalSign = repeat(equalSignLength, middleLine);
 
-			divisionResult.append(spaceBefore.toString()).append(additionalSpace.toString()).append(equalSign.toString()).append(newLine); // Next equal sign line
+			divisionResult.append(spaceBefore).append(additionalSpace).append(equalSign).append(newLine); // Next equal sign line
 
 			// Setting new parameters to start new iteration with
 
@@ -194,14 +183,13 @@ public class IntegerDivision {
 			// If it is a last iteration print the rest of division
 
 			int rest = (Integer.parseInt(minuend.toString()) - subtrahend);
-			StringBuilder positionForRest = new StringBuilder();
 			int restPosition = (String.valueOf(subtrahend).length() - String.valueOf(rest).length());
 
-			positionForRest = repeat(restPosition, space);
+			String positionForRest = repeat(restPosition, space);
 
 			if (i == dividendList.size() - 1 || j == quotientList.size() - 1) {
 
-				divisionResult.append(spaceBefore.toString()).append(additionalSpace.toString()).append(positionForRest.toString()).append(rest);
+				divisionResult.append(spaceBefore).append(additionalSpace).append(positionForRest).append(rest);
 			}
 		}
 	}
