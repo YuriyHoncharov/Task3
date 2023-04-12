@@ -11,7 +11,7 @@ public class Main {
 		int divisor = InputReader.readInt();
 
 		IntegerDivision longDivision = new IntegerDivision();
-		String result = longDivision.LongDivision(dividend, divisor);
+		String result = longDivision.longDivision(dividend, divisor);
 		System.out.println(result);
 	}
 }
