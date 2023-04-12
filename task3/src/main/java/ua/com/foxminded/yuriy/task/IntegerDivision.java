@@ -16,7 +16,7 @@ public class IntegerDivision {
 	private List<String> quotientList = new ArrayList<>();
 	private List<String> dividendList = new ArrayList<>();
 
-	public String LongDivision(int dividend, int divisor) {
+	public String longDivision(int dividend, int divisor) {
 
 		// Checking for invalid input
 
@@ -102,6 +102,14 @@ public class IntegerDivision {
 		divisionResult.append(spaceBeforeDividend.toString()).append(dashUnderDividend.toString()).append(spaceAfterDividend.toString()).append(verticalLine)
 		.append(dividend / divisor).append(newLine); // Third line
 		
+		if (quotientList.size() == 1) {
+			
+			int rest = dividend - (Integer.parseInt(quotientList.get(0)) * divisor);
+			StringBuilder positionForRest = new StringBuilder();
+			int restPosition = (String.valueOf(Integer.parseInt(quotientList.get(0)) * divisor).length() - String.valueOf(rest).length());
+			positionForRest = repeat(restPosition, space);
+			divisionResult.append(spaceBeforeDividend).append(positionForRest.toString()).append(rest);
+		}
 	}
 
 	private void centralIteration(int divisor) {
@@ -191,7 +199,7 @@ public class IntegerDivision {
 
 			positionForRest = repeat(restPosition, space);
 
-			if (i == dividendList.size() - 1) {
+			if (i == dividendList.size() - 1 || j == quotientList.size() - 1) {
 
 				divisionResult.append(spaceBefore.toString()).append(additionalSpace.toString()).append(positionForRest.toString()).append(rest);
 			}
